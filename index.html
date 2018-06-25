@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Automative FB</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1876678115687071',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.0'
+            });
+
+            function send_message() {
+
+                FB.ui({
+                    method: 'send',
+                    message: 'Witaj przyjacielu',
+                    to: '100002497132165',
+                    link: 'https://trello.com/platforms/slack'
+                }, function(response) {
+                    console.log(response);
+                });
+
+            }
+
+            send_message();
+
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $(document).ready(function() {
+            console.log("Write things");
+        });
+
+    </script>
+
+    <button onclick="send_message()">Do something!</button>
+
+</body>
+
+</html>
